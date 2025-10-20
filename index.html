@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Ashutosh Pattnaik - All Links in One Place">
+    <title>Ashutosh Pattnaik - Links</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            position: relative;
+            overflow-x: hidden;
+            padding: 2rem 1rem;
+        }
+
+        /* Animated Background */
+        .bg-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 0;
+        }
+
+        .particle {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            animation: float 15s infinite ease-in-out;
+        }
+
+        .particle:nth-child(1) { left: 10%; animation-delay: 0s; }
+        .particle:nth-child(2) { left: 20%; animation-delay: 2s; }
+        .particle:nth-child(3) { left: 30%; animation-delay: 4s; }
+        .particle:nth-child(4) { left: 40%; animation-delay: 6s; }
+        .particle:nth-child(5) { left: 50%; animation-delay: 8s; }
+        .particle:nth-child(6) { left: 60%; animation-delay: 10s; }
+        .particle:nth-child(7) { left: 70%; animation-delay: 12s; }
+        .particle:nth-child(8) { left: 80%; animation-delay: 14s; }
+        .particle:nth-child(9) { left: 90%; animation-delay: 16s; }
+        .particle:nth-child(10) { left: 15%; animation-delay: 18s; }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(100vh) scale(1) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.3;
+            }
+            50% {
+                transform: translateY(50vh) scale(1.5) rotate(180deg);
+                opacity: 0.5;
+            }
+            90% {
+                opacity: 0.3;
+            }
+            100% {
+                transform: translateY(-100vh) scale(1) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Container */
+        .container {
+            position: relative;
+            z-index: 1;
+            max-width: 450px;
+            width: 100%;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Profile Section */
+        .profile {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+
+        .profile-photo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin: 0 auto 1.5rem;
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            animation: pulse 3s infinite;
+        }
+
+        .profile-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+                box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            }
+            50% {
+                transform: scale(1.05);
+                box-shadow: 0 12px 40px rgba(102, 126, 234, 0.4);
+            }
+        }
+
+        .profile h1 {
+            font-size: 2rem;
+            color: #fff;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .profile p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .profile .tagline {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.95rem;
+            font-style: italic;
+        }
+
+        /* Links Container */
+        .links {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        /* Glassmorphism Link Card */
+        .link-card {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 1.2rem 1.5rem;
+            text-decoration: none;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .link-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .link-card:hover::before {
+            left: 100%;
+        }
+
+        .link-card:hover {
+            transform: translateY(-5px) scale(1.02);
+            background: rgba(255, 255, 255, 0.25);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+            border-color: rgba(255, 255, 255, 0.4);
+        }
+
+        .link-card:active {
+            transform: translateY(-2px) scale(0.98);
+        }
+
+        .link-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .link-content {
+            flex: 1;
+        }
+
+        .link-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.2rem;
+        }
+
+        .link-subtitle {
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .link-arrow {
+            font-size: 1.2rem;
+            transition: transform 0.3s ease;
+        }
+
+        .link-card:hover .link-arrow {
+            transform: translateX(5px);
+        }
+
+        /* Social Icons */
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .social-icon {
+            width: 45px;
+            height: 45px;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-icon:hover {
+            transform: translateY(-5px) rotate(360deg);
+            background: rgba(255, 255, 255, 0.3);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            margin-top: 2rem;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.85rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 480px) {
+            .profile h1 {
+                font-size: 1.6rem;
+            }
+
+            .profile p {
+                font-size: 1rem;
+            }
+
+            .link-card {
+                padding: 1rem 1.2rem;
+            }
+
+            .link-icon {
+                width: 45px;
+                height: 45px;
+                font-size: 1.3rem;
+            }
+
+            .link-title {
+                font-size: 1rem;
+            }
+
+            .link-subtitle {
+                font-size: 0.8rem;
+            }
+
+            .profile-photo {
+                width: 100px;
+                height: 100px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="bg-animation">
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+    </div>
+
+    <div class="container">
+        <!-- Profile Section -->
+        <div class="profile">
+            <div class="profile-photo">
+                <img src="https://lh3.googleusercontent.com/pw/AP1GczPUHSWMpE6TTtxdIZCfBpixK4DYltwcKmq-hICx6f4Zu6UQWgDPwjl5X_H4yzOQ4LLQ0zIPPTILMwNY8jJtQCACUSG8m0SMcFM2p73wxPqIyKBmRTE=w1920-h1080" alt="Ashutosh Pattnaik">
+            </div>
+            <h1>Ashutosh Pattnaik</h1>
+            <p class="tagline">Link Tree </p>
+        </div>
+
+        <!-- Links -->
+        <div class="links">
+            <a href="https://ashutosh147pattnaik.github.io/Ashu_portfolio.github.io/" class="link-card" target="_blank" rel="noopener noreferrer">
+                <div class="link-icon">🌐</div>
+                <div class="link-content">
+                    <div class="link-title">Portfolio</div>
+                    <div class="link-subtitle">View my projects & work</div>
+                </div>
+                <div class="link-arrow">→</div>
+            </a>
+
+            <a href="https://www.linkedin.com/in/ashutosh-pattnaik-386415229/" class="link-card" target="_blank" rel="noopener noreferrer">
+                <div class="link-icon">💼</div>
+                <div class="link-content">
+                    <div class="link-title">LinkedIn</div>
+                    <div class="link-subtitle">Connect with me professionally</div>
+                </div>
+                <div class="link-arrow">→</div>
+            </a>
+
+            <a href="https://github.com/ashutosh147pattnaik" class="link-card" target="_blank" rel="noopener noreferrer">
+                <div class="link-icon">💻</div>
+                <div class="link-content">
+                    <div class="link-title">GitHub</div>
+                    <div class="link-subtitle">Check out my code</div>
+                </div>
+                <div class="link-arrow">→</div>
+            </a>
+<!--
+            <a href="/resume.pdf" class="link-card" target="_blank" rel="noopener noreferrer">
+                <div class="link-icon">📄</div>
+                <div class="link-content">
+                    <div class="link-title">Resume/CV</div>
+                    <div class="link-subtitle">Download my resume</div>
+                </div>
+                <div class="link-arrow">→</div>
+            </a>
+
+            <a href="https://www.eurekaselect.com/chapter/23447" class="link-card" target="_blank" rel="noopener noreferrer">
+                <div class="link-icon">📚</div>
+                <div class="link-content">
+                    <div class="link-title">Research Publication</div>
+                    <div class="link-subtitle">BI & AI for Data Analytics</div>
+                </div>
+                <div class="link-arrow">→</div>
+            </a>
+
+            <a href="mailto:ashutoshpattnaik147@gmail.com" class="link-card">
+                <div class="link-icon">📧</div>
+                <div class="link-content">
+                    <div class="link-title">Email Me</div>
+                    <div class="link-subtitle">ashutoshpattnaik147@gmail.com</div>
+                </div>
+                <div class="link-arrow">→</div>
+            </a>
+
+            <a href="tel:8280858066" class="link-card">
+                <div class="link-icon">📞</div>
+                <div class="link-content">
+                    <div class="link-title">Call Me</div>
+                    <div class="link-subtitle">+91 8280858066</div>
+                </div>
+                <div class="link-arrow">→</div>
+            </a>
+        </div>
+-->
+        <!-- Social Icons 
+        <div class="social-links">
+            <a href="https://twitter.com/yourhandle" class="social-icon" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
+                𝕏
+            </a>
+            <a href="https://instagram.com/yourhandle" class="social-icon" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                📷
+            </a>
+            <a href="https://facebook.com/yourprofile" class="social-icon" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                👤
+            </a>
+            <a href="https://youtube.com/@yourchannel" class="social-icon" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+                ▶️
+            </a>
+        </div>
+-->
+        <!-- Footer -->
+        <div class="footer">
+            <p>© 2025 Ashutosh Pattnaik. All rights reserved.</p>
+        </div>
+    </div>
+
+    <script>
+        // Add entrance animation to link cards
+        document.addEventListener('DOMContentLoaded', () => {
+            const linkCards = document.querySelectorAll('.link-card');
+            linkCards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                setTimeout(() => {
+                    card.style.transition = 'all 0.5s ease';
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, index * 100);
+            });
+        });
+    </script>
+</body>
+</html>
